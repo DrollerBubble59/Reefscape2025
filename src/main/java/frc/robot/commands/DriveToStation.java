@@ -23,18 +23,6 @@ public class DriveToStation extends DriveToPose {
       new LoggedTunableNumber(
           "DriveToStation/StationAlignDistance",
           DriveConstants.robotWidth / 2.0 + Units.inchesToMeters(6.5));
-  private static final LoggedTunableNumber sideStationAlignDistance =
-      new LoggedTunableNumber(
-          "DriveToStation/SideStationAlignDistance",
-          DriveConstants.robotWidth / 2.0 + Units.inchesToMeters(2.5));
-  private static final LoggedTunableNumber horizontalMaxOffset =
-      new LoggedTunableNumber(
-          "DriveToStation/HorizontalMaxOffset",
-          FieldConstants.CoralStation.stationLength / 2 - Units.inchesToMeters(32));
-  private static final LoggedTunableNumber autoOffset =
-      new LoggedTunableNumber(
-          "DriveToStation/AutoOffset",
-          FieldConstants.CoralStation.stationLength / 2 - Units.inchesToMeters(24));
 
   public DriveToStation(DriveBase driveBase, boolean isAuto) {
     this(driveBase, () -> 0, () -> 0, () -> 0, isAuto);
@@ -73,18 +61,7 @@ public class DriveToStation extends DriveToPose {
                 FieldConstants.CoralStation.leftCenterFace,
                 FieldConstants.CoralStation.rightCenterFace
               }) {
-            Transform2d offset = new Transform2d(stationCenter, curPose);
-            offset =
-                new Transform2d(
-                    stationAlignDistance.get(),
-                    isAuto
-                        ? (curPose.getY() < FieldConstants.fieldWidth / 2.0
-                            ? -autoOffset.get()
-                            : autoOffset.get())
-                        : MathUtil.clamp(
-                            offset.getY(), -horizontalMaxOffset.get(), horizontalMaxOffset.get()),
-                    Rotation2d.kZero);
-
+            Transform2d offset = new Transform2d(stationAlignDistance.get(), 0.0, Rotation2d.kZero);
             finalPoses.add(stationCenter.transformBy(offset));
           }
           Logger.recordOutput(
