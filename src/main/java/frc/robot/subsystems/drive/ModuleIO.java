@@ -1,11 +1,11 @@
 package frc.robot.subsystems.drive;
 
 import edu.wpi.first.math.geometry.Rotation2d;
-import org.littletonrobotics.junction.AutoLog;
+import org.littletonrobotics.junction.LogTable;
+import org.littletonrobotics.junction.inputs.LoggableInputs;
 
 public interface ModuleIO {
-  @AutoLog
-  public static class ModuleIOInputs {
+  public static class ModuleIOInputs implements LoggableInputs {
     public boolean driveConnected = false;
     public double drivePositionRad = 0.0;
     public double driveVelocityRadPerSec = 0.0;
@@ -23,6 +23,48 @@ public interface ModuleIO {
 
     public double[] odometryDrivePositionsRad = new double[] {};
     public Rotation2d[] odometryTurnPositions = new Rotation2d[] {};
+
+    @Override
+    public void toLog(LogTable table) {
+      table.put("driveConnected", driveConnected);
+      table.put("drivePositionRad", drivePositionRad);
+      table.put("driveVelocityRadPerSec", driveVelocityRadPerSec);
+      table.put("driveAppliedVolts", driveAppliedVolts);
+      table.put("driveCurrentAmps", driveCurrentAmps);
+      table.put("driveTempCelsius", driveTempCelsius);
+
+      table.put("turnConnected", turnConnected);
+      table.put("turnAbsolutePosition", turnAbsolutePosition);
+      table.put("turnPosition", turnPosition);
+      table.put("turnVelocityRadPerSec", turnVelocityRadPerSec);
+      table.put("turnAppliedVolts", turnAppliedVolts);
+      table.put("turnCurrentAmps", turnCurrentAmps);
+      table.put("turnTempCelsius", turnTempCelsius);
+
+      table.put("odometryDrivePositionsRad", odometryDrivePositionsRad);
+      table.put("odometryTurnPositions", odometryTurnPositions);
+    }
+
+    @Override
+    public void fromLog(LogTable table) {
+      driveConnected = table.get("driveConnected", driveConnected);
+      drivePositionRad = table.get("drivePositionRad", drivePositionRad);
+      driveVelocityRadPerSec = table.get("driveVelocityRadPerSec", driveVelocityRadPerSec);
+      driveAppliedVolts = table.get("driveAppliedVolts", driveAppliedVolts);
+      driveCurrentAmps = table.get("driveCurrentAmps", driveCurrentAmps);
+      driveTempCelsius = table.get("driveTempCelsius", driveTempCelsius);
+
+      turnConnected = table.get("turnConnected", turnConnected);
+      turnAbsolutePosition = table.get("turnAbsolutePosition", turnAbsolutePosition);
+      turnPosition = table.get("turnPosition", turnPosition);
+      turnVelocityRadPerSec = table.get("turnVelocityRadPerSec", turnVelocityRadPerSec);
+      turnAppliedVolts = table.get("turnAppliedVolts", turnAppliedVolts);
+      turnCurrentAmps = table.get("turnCurrentAmps", turnCurrentAmps);
+      turnTempCelsius = table.get("turnTempCelsius", turnTempCelsius);
+
+      odometryDrivePositionsRad = table.get("odometryDrivePositionsRad", odometryDrivePositionsRad);
+      odometryTurnPositions = table.get("odometryTurnPositions", odometryTurnPositions);
+    }
   }
 
   /** Updates the set of loggable inputs. */
