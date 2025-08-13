@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.FieldConstants;
 import frc.robot.RobotState;
+import frc.robot.subsystems.elevator.ElevatorIO.ElevatorIOInputs;
 import frc.robot.subsystems.elevator.ElevatorPose.Preset;
 import frc.robot.subsystems.leds.LEDBase;
 import frc.robot.util.EqualsUtil;
@@ -72,7 +73,7 @@ public class ElevatorBase extends SubsystemBase {
   }
 
   private final ElevatorIO io;
-  private final ElevatorIOInputsAutoLogged inputs = new ElevatorIOInputsAutoLogged();
+  private final ElevatorIOInputs inputs = new ElevatorIOInputs();
 
   private final Alert motorDisconnectedAlert =
       new Alert("Elevator leader motor disconnected!", Alert.AlertType.kWarning);
