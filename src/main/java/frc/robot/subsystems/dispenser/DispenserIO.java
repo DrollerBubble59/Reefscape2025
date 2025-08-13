@@ -38,6 +38,12 @@ public interface DispenserIO {
       tempCelsius = table.get("tempCelsius", tempCelsius);
       rearBeamBreakBroken = table.get("rearBeamBreakBroken", rearBeamBreakBroken);
     }
+
+    public void toLog(LogTable table) {}
+
+    @Override
+    public void fromLog(LogTable table) {}
+
   }
 
   default void updateInputs(DispenserIOInputs inputs) {}

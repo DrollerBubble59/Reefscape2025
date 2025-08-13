@@ -67,6 +67,11 @@ public interface ModuleIO {
       odometryDrivePositionsRad = table.get("odometryDrivePositionsRad", odometryDrivePositionsRad);
       odometryTurnPositions = table.get("odometryTurnPositions", odometryTurnPositions);
     }
+
+    public void toLog(LogTable table) {}
+
+    @Override
+    public void fromLog(LogTable table) {}
   }
 
   /** Updates the set of loggable inputs. */

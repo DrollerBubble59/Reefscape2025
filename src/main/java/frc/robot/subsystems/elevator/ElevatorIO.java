@@ -37,6 +37,10 @@ public interface ElevatorIO {
       currentAmps = table.get("currentAmps", currentAmps);
       tempCelsius = table.get("tempCelsius", tempCelsius);
     }
+    public void toLog(LogTable table) {}
+
+    @Override
+    public void fromLog(LogTable table) {}
   }
 
   default void updateInputs(ElevatorIOInputs inputs) {}

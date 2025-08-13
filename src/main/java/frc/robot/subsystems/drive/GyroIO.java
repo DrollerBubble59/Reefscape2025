@@ -42,6 +42,11 @@ public interface GyroIO {
       rollVelocityRadPerSec = table.get("rollVelocityRadPerSec", rollVelocityRadPerSec);
       odometryYawPositions = table.get("odometryYawPositions", odometryYawPositions);
     }
+
+    public void toLog(LogTable table) {}
+
+    @Override
+    public void fromLog(LogTable table) {}
   }
 
   public default void updateInputs(GyroIOInputs inputs) {}
