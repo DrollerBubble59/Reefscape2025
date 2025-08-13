@@ -17,6 +17,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.RobotState;
 import frc.robot.RobotState.OdometryObservation;
+import frc.robot.subsystems.drive.GyroIO.GyroIOInputs;
+import frc.robot.subsystems.drive.OdometryManager.OdometryTimestampsInput;
 import frc.robot.util.LoggedTracer;
 import frc.robot.util.LoggedTunableNumber;
 import frc.robot.util.swerve.SwerveSetpointGenerator;
@@ -37,13 +39,12 @@ public class DriveBase extends SubsystemBase {
   private static final double WHEEL_RADIUS_RAMP_RATE = 0.05; // Rad/Sec^2
 
   private final GyroIO gyroIO;
-  private final GyroIOInputsAutoLogged m_gyroInputs = new GyroIOInputsAutoLogged();
+  private final GyroIOInputs m_gyroInputs = new GyroIOInputs();
 
   private final Module[] modules = new Module[4]; // FL, FR, BL, BR
 
   private final Queue<Double> m_timestampsQueue;
-  private final OdometryTimestampsInputAutoLogged m_timestampInputs =
-      new OdometryTimestampsInputAutoLogged();
+  private final OdometryTimestampsInput m_timestampInputs = new OdometryTimestampsInput();
   private final Alert gyroDisconnectedAlert =
       new Alert(
           "Disconnected gyro, using kinematic approximation as fallback.", Alert.AlertType.kError);

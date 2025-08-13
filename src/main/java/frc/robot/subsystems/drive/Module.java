@@ -6,6 +6,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.Alert;
 import edu.wpi.first.wpilibj.Alert.AlertType;
 import frc.robot.Constants;
+import frc.robot.subsystems.drive.ModuleIO.ModuleIOInputs;
 import frc.robot.util.LoggedTracer;
 import frc.robot.util.LoggedTunableNumber;
 import lombok.Getter;
@@ -53,7 +54,7 @@ class Module {
   }
 
   private final ModuleIO m_io;
-  private final ModuleIOInputsAutoLogged m_inputs = new ModuleIOInputsAutoLogged();
+  private final ModuleIOInputs m_inputs = new ModuleIOInputs();
   private final int index;
 
   private final Alert driveDisconnectedAlert;
