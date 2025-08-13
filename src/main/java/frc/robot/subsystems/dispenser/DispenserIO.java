@@ -1,10 +1,10 @@
 package frc.robot.subsystems.dispenser;
-
 import org.littletonrobotics.junction.AutoLog;
 import org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 
 public interface DispenserIO {
+
   @AutoLog
   class DispenserIOInputs implements LoggableInputs {
     public boolean connected = false;
@@ -43,7 +43,6 @@ public interface DispenserIO {
 
     @Override
     public void fromLog(LogTable table) {}
-
   }
 
   default void updateInputs(DispenserIOInputs inputs) {}

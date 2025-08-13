@@ -1,6 +1,7 @@
 package frc.robot.subsystems.intake;
 
 import org.littletonrobotics.junction.AutoLog;
+
 import org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 
