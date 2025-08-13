@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Alert;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.FieldConstants.ReefLevel;
+import frc.robot.subsystems.dispenser.DispenserIO.DispenserIOInputs;
 import frc.robot.util.LoggedTracer;
 import frc.robot.util.LoggedTunableNumber;
 import java.util.function.DoubleSupplier;
@@ -25,7 +26,7 @@ public class DispenserBase extends SubsystemBase {
   };
 
   private final DispenserIO io;
-  private final DispenserIOInputsAutoLogged inputs = new DispenserIOInputsAutoLogged();
+  private final DispenserIOInputs inputs = new DispenserIOInputs();
 
   @AutoLogOutput private boolean holdingCoral;
 
