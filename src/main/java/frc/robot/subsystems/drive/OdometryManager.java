@@ -83,6 +83,15 @@ class OdometryManager implements AutoCloseable {
     public double[] timestamps;
 
     @Override
+    public void toLog(LogTable table) {
+      table.put("timestamps", timestamps);
+    }
+
+    @Override
+    public void fromLog(LogTable table) {
+      timestamps = table.get("timestamps", timestamps);
+    }
+
     public void toLog(LogTable table) {}
 
     @Override

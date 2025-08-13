@@ -20,6 +20,29 @@ public interface GyroIO {
     public Rotation2d[] odometryYawPositions = new Rotation2d[] {};
 
     @Override
+    public void toLog(LogTable table) {
+      table.put("connected", connected);
+      table.put("yawPosition", yawPosition);
+      table.put("yawVelocityRadPerSec", yawVelocityRadPerSec);
+      table.put("pitchPosition", pitchPosition);
+      table.put("pitchVelocityRadPerSec", pitchVelocityRadPerSec);
+      table.put("rollPosition", rollPosition);
+      table.put("rollVelocityRadPerSec", rollVelocityRadPerSec);
+      table.put("odometryYawPositions", odometryYawPositions);
+    }
+
+    @Override
+    public void fromLog(LogTable table) {
+      connected = table.get("connected", connected);
+      yawPosition = table.get("yawPosition", yawPosition);
+      yawVelocityRadPerSec = table.get("yawVelocityRadPerSec", yawVelocityRadPerSec);
+      pitchPosition = table.get("pitchPosition", pitchPosition);
+      pitchVelocityRadPerSec = table.get("pitchVelocityRadPerSec", pitchVelocityRadPerSec);
+      rollPosition = table.get("rollPosition", rollPosition);
+      rollVelocityRadPerSec = table.get("rollVelocityRadPerSec", rollVelocityRadPerSec);
+      odometryYawPositions = table.get("odometryYawPositions", odometryYawPositions);
+    }
+
     public void toLog(LogTable table) {}
 
     @Override
