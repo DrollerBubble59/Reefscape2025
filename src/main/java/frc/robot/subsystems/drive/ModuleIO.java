@@ -1,10 +1,18 @@
 package frc.robot.subsystems.drive;
 
 import edu.wpi.first.math.geometry.Rotation2d;
+
+import org.littletonrobotics.junction.AutoLog;
+
 import org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 
 public interface ModuleIO {
+
+
+  @AutoLog
+
+
   public static class ModuleIOInputs implements LoggableInputs {
     public boolean driveConnected = false;
     public double drivePositionRad = 0.0;
@@ -65,6 +73,7 @@ public interface ModuleIO {
       odometryDrivePositionsRad = table.get("odometryDrivePositionsRad", odometryDrivePositionsRad);
       odometryTurnPositions = table.get("odometryTurnPositions", odometryTurnPositions);
     }
+
   }
 
   /** Updates the set of loggable inputs. */

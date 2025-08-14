@@ -3,7 +3,13 @@ package frc.robot.subsystems.intake;
 import org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 
+import org.littletonrobotics.junction.LogTable;
+import org.littletonrobotics.junction.inputs.LoggableInputs;
+
 public interface IntakeIO {
+
+  @AutoLog
+
   class IntakeIOInputs implements LoggableInputs {
     public boolean connected = false;
 
@@ -32,6 +38,7 @@ public interface IntakeIO {
       currentAmps = table.get("currentAmps", currentAmps);
       tempCelsius = table.get("tempCelsius", tempCelsius);
     }
+
   }
 
   default void updateInputs(IntakeIOInputs inputs) {}

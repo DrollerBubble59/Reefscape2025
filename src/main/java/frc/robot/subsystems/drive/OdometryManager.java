@@ -10,6 +10,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.DoubleSupplier;
 import lombok.Getter;
+
+import org.littletonrobotics.junction.AutoLog;
+
 import org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 
@@ -76,6 +79,9 @@ class OdometryManager implements AutoCloseable {
     notifier.stop();
     notifier.close();
   }
+
+
+  @AutoLog
 
   public static class OdometryTimestampsInput implements LoggableInputs {
     public double[] timestamps;
