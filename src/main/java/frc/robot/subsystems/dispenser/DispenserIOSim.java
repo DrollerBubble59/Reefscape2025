@@ -25,6 +25,8 @@ public class DispenserIOSim implements DispenserIO {
     inputs.velocityRadsPerSec = sim.getAngularVelocityRadPerSec();
     inputs.appliedVoltage = appliedVoltage;
     inputs.currentAmps = sim.getCurrentDrawAmps();
+    inputs.tempCelsius = 0.0;
+    inputs.rearBeamBreakBroken = false;
   }
 
   @Override
