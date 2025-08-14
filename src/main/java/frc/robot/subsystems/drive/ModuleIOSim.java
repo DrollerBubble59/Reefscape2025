@@ -76,6 +76,7 @@ public class ModuleIOSim implements ModuleIO {
     inputs.driveVelocityRadPerSec = driveSim.getAngularVelocityRadPerSec();
     inputs.driveAppliedVolts = driveAppliedVolts;
     inputs.driveCurrentAmps = Math.abs(driveSim.getCurrentDrawAmps());
+    inputs.driveTempCelsius = 0.0;
 
     // Update turn inputs
     inputs.turnConnected = true;
@@ -84,6 +85,7 @@ public class ModuleIOSim implements ModuleIO {
     inputs.turnVelocityRadPerSec = turnSim.getAngularVelocityRadPerSec();
     inputs.turnAppliedVolts = turnAppliedVolts;
     inputs.turnCurrentAmps = Math.abs(turnSim.getCurrentDrawAmps());
+    inputs.turnTempCelsius = 0.0;
 
     inputs.odometryDrivePositionsRad =
         drivePositionQueue.stream().mapToDouble((Double value) -> value).toArray();

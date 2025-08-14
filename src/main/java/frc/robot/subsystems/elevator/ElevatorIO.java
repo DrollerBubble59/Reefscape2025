@@ -1,12 +1,16 @@
 package frc.robot.subsystems.elevator;
 
 
+
 import org.littletonrobotics.junction.AutoLog;
+
 import org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 
 public interface ElevatorIO {
+
   @AutoLog
+
   public class ElevatorIOInputs implements LoggableInputs {
     public boolean leaderConnected = false;
     public boolean followerConnected = false;
@@ -38,10 +42,7 @@ public interface ElevatorIO {
       currentAmps = table.get("currentAmps", currentAmps);
       tempCelsius = table.get("tempCelsius", tempCelsius);
     }
-    public void toLog(LogTable table) {}
 
-    @Override
-    public void fromLog(LogTable table) {}
   }
 
   default void updateInputs(ElevatorIOInputs inputs) {}
